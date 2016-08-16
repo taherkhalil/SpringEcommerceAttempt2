@@ -6,7 +6,7 @@ import com.mysite.model.User;
 
 public class UserHandler {
  public List<User> getUsers() {
-		return users;
+	 	return users;
 	}
 
 	public void setUsers(List<User> users) {
@@ -15,3 +15,4 @@ public class UserHandler {
 
 private List<User> users;
 }
+

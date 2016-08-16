@@ -38,6 +38,55 @@
 		<property name="username" value="shital"></property>
 		<property name="password" value="123"></property>
 	</bean>
+
+	<bean id="loginValidator" class="com.mysite.handler.LoginValidator"></bean>
+	<bean id="loginHandler" class="com.mysite.handler.LoginHandler"></bean>
+
+	<bean name="productHandler" class="com.mysite.handler.ProductHandler"
+		scope="singleton">
+		<property name="products">
+			<list>
+				<ref bean="product1" />
+				<ref bean="product2" />
+				<ref bean="product3" />
+				<ref bean="product4" />
+			</list>
+		</property>
+	</bean>
+	<bean id="product1" class="com.mysite.model.Products">
+		<property name="id" value="1" />
+		<property name="name" value="puma Shoes" />
+		<property name="price" value="799" />
+		<property name="size" value="X" />
+		<property name="color" value="Blue/green" />
+		<property name="quantity" value="5" />
+	</bean>
+
+	<bean id="product2" class="com.mysite.model.Products">
+		<property name="id" value="2" />
+		<property name="name" value="addidas Shoes" />
+		<property name="price" value="900" />
+		<property name="size" value="XL" />
+		<property name="color" value="Black/Blue" />
+		<property name="quantity" value="5" />
+	</bean>
+	<bean id="product3" class="com.mysite.model.Products">
+		<property name="id" value="3" />
+		<property name="name" value="Nike Shoes" />
+		<property name="price" value="899" />
+		<property name="size" value="L" />
+		<property name="color" value="White/Black" />
+		<property name="quantity" value="5" />
+	</bean>
+	<bean id="product4" class="com.mysite.model.Products">
+		<property name="id" value="4" />
+		<property name="name" value="BATA Shoes" />
+		<property name="price" value="499" />
+		<property name="size" value="XL" />
+		<property name="color" value="Blue" />
+		<property name="quantity" value="5" />
+
+	</bean>
 </beans>
    
  

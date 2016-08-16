@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Welcome to the shopping site</h1>
-<a href="/login" >click here to login and enter the site:</a>
+<a href="/EcommerceV2/login" >click here to login and enter the site:</a>
 
 </body>
 </html>
