@@ -7,14 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product | Clothing Mart</title>
+<title>Product | Shoe Sale</title>
 </head>
 <body>
-	<a href="home">Home</a>
+	<a href="dashboard">DashBoard</a>
 	<a href="logout">Logout</a>
 
 	<p>
-		<a href="cart/view">Cart <span id="cartNumber"><c:out
+		<a href="viewCart">Cart <span id="cartNumber"><c:out
 					value="${cartSize}" /></span></a>
 	</p>
 	<p id="cartMessage"></p>
@@ -23,7 +23,7 @@
 	</h3>
 
 	<div>
-	
+
 		Name:
 		<c:out value="${model.product.name}" />
 		<br> Size:
@@ -31,50 +31,11 @@
 		<br> Color:
 		<c:out value="${model.product.color}" />
 		<br> <i>&#x20b9;<c:out value="${model.product.price}" /></i><br>
-		<a href="<c:out value="${model.product.id}" />" id="cartAdd">Add
+			  <a href="/EcommerceV2/add?id=<c:out value="${model.product.id}" />" >Add to Cart</a>
 			to Cart</a> <br>
 	</div>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function($) {
-			setCartSize();
-			function setCartSize() {
-				$.get("cart/size", function(data) {
-					$("#cartNumber").html(data);
-					console.log(data);
-				});
-			}
-			$("body").on("click", "#cartAdd", function(e) {
-				e.preventDefault();
-				console.log($(this).attr("href"));
-				var url = "cart/add?id=";
-				url += $(this).attr("href");
-
-				$.ajax({
-					url : url,
-					type : "GET",
-					success : function(data) {
-						console.log("Success");
-						$("#cartNumber").text(data);
-						$("#cartMessage").text("Item Added Successfully");
-						setTimeout(function() {
-							if ($('#cartMessage').length > 0) {
-								$('#cartMessage').text("");
-							}
-						}, 5000)
-
-					},
-					error : function(xhr, status, msg) {
-						console.log(xhr.responseText);
-						$("#cartMessage").text("Oops! Something Went Wrong!");
-					}
-				});
-			});
-		});
-	</script>
-</body>
-</html>
+	
+	
 </body>
 </html>

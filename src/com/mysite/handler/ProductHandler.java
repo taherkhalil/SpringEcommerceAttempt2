@@ -3,6 +3,7 @@ package com.mysite.handler;
 import java.util.List;
 
 import com.mysite.exceptions.ItemNotFoundException;
+import com.mysite.exceptions.ItemOutOfStockException;
 import com.mysite.model.Products;
 
 public class ProductHandler {
@@ -39,7 +40,16 @@ public class ProductHandler {
 				}
 			}
 			if (quantity == 0) {
-				//throw new ItemOutOfStockException();
+				throw new ItemOutOfStockException();
+			}
+		}
+		public void increaseQuantity(Products tempProduct) {
+			Integer quantity = tempProduct.getQuantity(); 
+			
+			for (int i=0; i < products.size(); i++) {	
+				if (products.get(i).getId() == tempProduct.getId() ) {
+					products.get(i).setQuantity(++quantity);
+				}
 			}
 		}
 		

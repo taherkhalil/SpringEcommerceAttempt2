@@ -1,5 +1,7 @@
 package com.mysite.handler;
 
+import java.util.HashMap;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 
+import com.mysite.model.Products;
 import com.mysite.model.User;
+
 
 public class LoginHandler {
 	@Autowired
@@ -18,6 +22,8 @@ public class LoginHandler {
 	UserHandler userHandler;
 //	@Autowired
 //	User user ;
+//	@Autowired
+	CartManager cartManager;
 
 	public String validateInput(ModelMap model, User user, BindingResult result, String toPage,
 			HttpServletRequest request, HttpServletResponse response) {
@@ -48,8 +54,8 @@ public class LoginHandler {
 		Cookie cookie = new Cookie("sessID", session.getId());
 		cookie.setMaxAge(10000);
 		response.addCookie(cookie);
-//		session.setAttribute("cartList", new CartManager(new HashMap<Integer,Product>()));
-//		session.setAttribute("cartSize", new Integer(0));
+		session.setAttribute("cartList", new CartManager(new HashMap<Integer,Products>()) );
+		session.setAttribute("cartSize", new Integer(0));
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.mysite.model;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Products implements Serializable {
 	private int id;
 	private String name;

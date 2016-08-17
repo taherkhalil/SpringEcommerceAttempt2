@@ -87,6 +87,7 @@
 		<property name="quantity" value="5" />
 
 	</bean>
+	<!-- <bean id="cartManager" class="com.mysite.handler.CartManager"></bean> -->
 </beans>
    
  
