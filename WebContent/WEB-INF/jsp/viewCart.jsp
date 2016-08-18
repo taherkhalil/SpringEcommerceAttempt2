@@ -18,13 +18,15 @@
 
 	<c:forEach items="${model.products}" var="prod">
 		<div>
-
+<h3><pre>
 			<br>
 			<c:out value="${prod.value.name}" />
 			<br>
 			<i>&#x20b9;<c:out value="${prod.value.price}" /></i><br> <a
 				href="/EcommerceV2/remove?id=<c:out value="${prod.key}" />"
 				id="cartRemove">Remove From Cart</a> <br>
+</pre>	</h3>
+			
 		</div>
 	</c:forEach>
 </body>

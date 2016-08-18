@@ -1,7 +1,9 @@
 package com.mysite.controller;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -92,16 +94,20 @@ public class CartController {
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
 	public ModelAndView checkout(ModelMap model, HttpServletRequest req, HttpServletResponse res,@ModelAttribute("order") Order order) {
 		cartManager = (CartManager) req.getSession(false).getAttribute("cartList");
-
+		Set<Order> orders = new HashSet<Order>();
 		System.out.println("checkout called");
 		System.out.println(req.getSession(false).getAttribute("cartList"));
 
-		productHandler.removeDuplicateProducts(cartManager.getCartProducts());
+		orders=productHandler.removeDuplicateProducts(cartManager.getCartProducts());
+		//order=(Order) req.getSession().getAttribute("orders");
+		System.out.println(orders);
+	
 		
-		System.out.println("the quantity of a product is in controller:" + order.getQuantity());
+		
 		Integer price = cartManager.calculatePrice();
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("products", cartManager.getCartProducts());
+		myModel.put("orders", orders);
 		myModel.put("total", price);
 
 		return new ModelAndView("checkout", "model", myModel);

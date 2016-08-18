@@ -10,12 +10,16 @@
 <h3><pre><a href="logout">Logout</a>
 	<a href="dashboard">DashBoard</a>
 		 <a href="place">Place Order</a></pre></h3>
-	<c:forEach items="${model.products}" var="prod">
+	<%-- <c:forEach items="${model.products}" var="prod">
     	<div>
 			<c:out value="${prod.value.name}"/> &nbsp; &nbsp;&nbsp;&nbsp; <i>&#x20b9;<c:out value="${prod.value.price}"/></i>
 			<br>
       	</div>
-    </c:forEach>
+    </c:forEach> --%>
+    
+   <%--  <c:out value="${model.orders }"/>
+    <br> --%>
+    <c:forEach items="${model.orders }" var="order"> <c:out value="${order }"></c:out><br>   </c:forEach>
     <br>
     Total: <c:out value="${model.total}"/>
 	

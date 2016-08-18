@@ -2,6 +2,10 @@ package com.mysite.model;
 
 
 public class Order {
+	@Override
+	public String toString() {
+		return " " + product.getName()+"    ,quantity=" + quantity + "    ,price=" + price + "";
+	}
 	private Products product;
 	private Integer quantity;
 	private Double price;

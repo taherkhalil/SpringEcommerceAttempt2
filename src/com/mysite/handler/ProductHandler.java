@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.mysite.exceptions.ItemNotFoundException;
 import com.mysite.model.Order;
 import com.mysite.model.Products;
@@ -13,7 +16,6 @@ import com.mysite.model.Products;
 public class ProductHandler {
 
 		private List<Products> products;
-		
 
 		public List<Products> getProducts() {	
 			return products;
@@ -55,18 +57,20 @@ public class ProductHandler {
 			}
 		}
 		
-		public static Set<Order> removeDuplicateProducts(Map<Integer,Products> cartItems) {
+		public  Set<Order> removeDuplicateProducts(Map<Integer,Products> cartItems) {
 			Set<Order> orders = new HashSet<Order>();
 			Order order = null;
 			
 			for (Products prod: cartItems.values()) {
 				
 				int quantity = Collections.frequency(cartItems.values(), prod);
-				double price = prod.getPrice()*quantity;
+				Integer price = prod.getPrice()* quantity;
 				order = new Order (prod, quantity, price);
 				orders.add(order);
 			}
-			System.out.println("the quantity of a product is:" + order.getQuantity());
+			System.out.println(orders.toString());
+			//req.getSession(false).setAttribute("orders", orders);
+			
 			return orders;
 		}
 		

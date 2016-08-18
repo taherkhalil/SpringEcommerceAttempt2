@@ -8,11 +8,12 @@
 	<title>Sign In </title>
 </head>
 <body>
+
 <c:if test="${ not empty error }">
 		<p>Invalid Credentials</p>
 	</c:if>
-	<form:form commandName="user" method="POST" action="login">
-		
+	<form:form commandName="user" method="POST" action="login" align="center" >
+		 
 		<label>Username:</label>
 		<form:input type="text" path="username"   />
 		<font color="red"><form:errors path="username"/></font><br/><br/>
