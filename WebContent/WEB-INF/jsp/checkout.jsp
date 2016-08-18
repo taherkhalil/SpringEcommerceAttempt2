@@ -7,9 +7,9 @@
 </head>
 <body>
 	<h1>Checkout</h1>
+<h3><pre><a href="logout">Logout</a>
 	<a href="dashboard">DashBoard</a>
-	<a href="logout">Logout</a>
-	<a href="place">Place Order</a>
+		 <a href="place">Place Order</a></pre></h3>
 	<c:forEach items="${model.products}" var="prod">
     	<div>
 			<c:out value="${prod.value.name}"/> &nbsp; &nbsp;&nbsp;&nbsp; <i>&#x20b9;<c:out value="${prod.value.price}"/></i>

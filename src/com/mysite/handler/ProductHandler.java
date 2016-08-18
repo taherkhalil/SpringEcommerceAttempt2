@@ -1,9 +1,13 @@
 package com.mysite.handler;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.mysite.exceptions.ItemNotFoundException;
-import com.mysite.exceptions.ItemOutOfStockException;
+import com.mysite.model.Order;
 import com.mysite.model.Products;
 
 public class ProductHandler {
@@ -39,9 +43,7 @@ public class ProductHandler {
 					products.get(i).setQuantity(--quantity);
 				}
 			}
-			if (quantity == 0) {
-				throw new ItemOutOfStockException();
-			}
+		
 		}
 		public void increaseQuantity(Products tempProduct) {
 			Integer quantity = tempProduct.getQuantity(); 
@@ -51,6 +53,21 @@ public class ProductHandler {
 					products.get(i).setQuantity(++quantity);
 				}
 			}
+		}
+		
+		public static Set<Order> removeDuplicateProducts(Map<Integer,Products> cartItems) {
+			Set<Order> orders = new HashSet<Order>();
+			Order order = null;
+			
+			for (Products prod: cartItems.values()) {
+				
+				int quantity = Collections.frequency(cartItems.values(), prod);
+				double price = prod.getPrice()*quantity;
+				order = new Order (prod, quantity, price);
+				orders.add(order);
+			}
+			System.out.println("the quantity of a product is:" + order.getQuantity());
+			return orders;
 		}
 		
 }

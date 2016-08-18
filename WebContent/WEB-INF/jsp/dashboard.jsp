@@ -11,8 +11,9 @@
 	<h1>hey brother</h1>
 	<h3>Products</h3>
 
-	<a href="viewCart">Cart <span id="cartNumber"><c:out
-				value="${cartSize}" /></span></a>
+	<h4><pre><a href="viewCart">Cart <span id="cartNumber"><c:out
+				value="${cartSize}" /></span></a>          <a href="logout">Logout</a></pre></h4>
+					
 	<c:forEach items="${model.products}" var="prod">
 		<div>
 

@@ -2,7 +2,6 @@ package com.mysite.handler;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import com.mysite.model.Products;
@@ -10,6 +9,10 @@ import com.mysite.model.Products;
 
 
 public class CartManager {
+	@Override
+	public String toString() {
+		return "CartManager [cartProducts=" + cartProducts + "] \n";
+	}
 	private Map<Integer, Products> cartProducts;
 	public CartManager(Map<Integer,Products> cartProducts){
 		this.cartProducts = cartProducts;
@@ -46,10 +49,18 @@ public class CartManager {
 	}
 	public Integer calculatePrice(){
 		Integer total = 0;
-		for (int i = 1; i < (cartProducts.size() + 1); i++) {
-			System.out.println();
-			total += cartProducts.get(i).getPrice();
-		}
+//		for (int i = 1; i < (cartProducts.size() + 1); i++) {
+//			System.out.println();
+//			total += cartProducts.get(i).getPrice();
+//		}
+		Iterator itr = cartProducts.entrySet().iterator();
+
+		while (itr.hasNext())
+		{
+			Map.Entry<Integer, Products> item = (Map.Entry<Integer, Products>) itr.next();
+			total += item.getValue().getPrice(); 
+		} 
+
 		return total;
 	}
 	
