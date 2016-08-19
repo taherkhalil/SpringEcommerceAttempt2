@@ -55,7 +55,7 @@
 	</bean>
 	<bean id="product1" class="com.mysite.model.Products">
 		<property name="id" value="1" />
-		<property name="name" value="puma Shoes" />
+		<property name="name" value="Puma Shoes" />
 		<property name="price" value="799" />
 		<property name="size" value="X" />
 		<property name="color" value="Blue/green" />
@@ -65,7 +65,7 @@
 
 	<bean id="product2" class="com.mysite.model.Products">
 		<property name="id" value="2" />
-		<property name="name" value="addidas Shoes" />
+		<property name="name" value="Addidas Shoes" />
 		<property name="price" value="900" />
 		<property name="size" value="XL" />
 		<property name="color" value="Black/Blue" />

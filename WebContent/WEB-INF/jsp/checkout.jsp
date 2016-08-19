@@ -7,21 +7,14 @@
 </head>
 <body>
 	<h1>Checkout</h1>
-<h3><pre><a href="logout">Logout</a>
+<h3 align="justify"><a href="logout">Logout</a><br>
 	<a href="dashboard">DashBoard</a>
-		 <a href="place">Place Order</a></pre></h3>
-	<%-- <c:forEach items="${model.products}" var="prod">
-    	<div>
-			<c:out value="${prod.value.name}"/> &nbsp; &nbsp;&nbsp;&nbsp; <i>&#x20b9;<c:out value="${prod.value.price}"/></i>
-			<br>
-      	</div>
-    </c:forEach> --%>
-    
-   <%--  <c:out value="${model.orders }"/>
-    <br> --%>
+		 <a href="place">Place Order</a></h3>
+		 <h3 align="center" style="font: bolder;color: navy;">
     <c:forEach items="${model.orders }" var="order"> <c:out value="${order }"></c:out><br>   </c:forEach>
     <br>
-    Total: <c:out value="${model.total}"/>
+    </h3>
+    <h2 align="left"  style="color: red;"><b>Total: <c:out value="${model.total}"/></b></h2>
 	
 </body>
 </html>

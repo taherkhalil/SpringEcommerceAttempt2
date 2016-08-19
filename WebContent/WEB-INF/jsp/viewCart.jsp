@@ -9,28 +9,30 @@
 </head>
 <body>
 	<h1>Cart</h1>
-	<h3><pre><a href="logout">Logout</a>
-	 <a href="dashboard">DashBoard</a>
- 	 <a href="checkout">Checkout</a></pre></h3>
+	<h3 align="justify">
+
+		<a href="logout">Logout</a><br> <a href="dashboard">DashBoard</a>
+		<a href="checkout">Checkout</a>
+
+	</h3>
 
 	<h3>Products</h3>
 
 
 	<c:forEach items="${model.products}" var="prod">
 		<div>
-<h4><pre>
-			
-			<c:out value="${prod.value.name}" />
-			
-			<i>&#x20b9;<c:out value="${prod.value.price}" /></i><br> 
-			selected quantity:<c:out value="${prod.value.selected}" />
-			
-						    <%-- <c:forEach items="${model.orders }" var="order"> <c:out value="${order }"></c:out><br>   </c:forEach> --%>
-    
-				<a href="/EcommerceV2/remove?id=<c:out value="${prod.key}" />"id="cartRemove">Remove From Cart</a>
+			<h4 align="center" style="font-style: oblique;">
+				
+						<c:out value="${prod.value.name}" />
+						<i>&#x20b9;<c:out value="${prod.value.price}" /></i><br> 
+			selected quantity:<c:out value="${prod.value.selected}" /><br>
+					  
+    				<a href="/EcommerceV2/remove?id=<c:out value="${prod.key}" />"
+						id="cartRemove">Remove From Cart</a>
 				 <br>
-</pre>	</h4>
-			
+
+			</h4>
+
 		</div>
 	</c:forEach>
 </body>

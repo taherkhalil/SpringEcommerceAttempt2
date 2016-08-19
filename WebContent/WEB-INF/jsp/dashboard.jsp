@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>DashBoard</title>
 </head>
-<body>
-	<h1>hey brother</h1>
+<body >
+<div align="center">
+	<h1>welcome  <c:out value="${user }"></c:out>    </h1>
 	<h3>Products</h3>
 
 	<h4><pre><a href="viewCart">Cart <span id="cartNumber"><c:out
@@ -31,6 +32,6 @@
 				More</a> <br>
 		</div>
 	</c:forEach>
-	
+	</div>
 </body>
 </html>

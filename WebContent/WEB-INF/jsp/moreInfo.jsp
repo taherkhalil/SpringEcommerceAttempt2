@@ -10,30 +10,29 @@
 <title>Product | Shoe Sale</title>
 </head>
 <body>
-	<h3><pre><a href="logout">Logout</a>   
-	
-	 <a href="dashboard">DashBoard</a>
+	<h3><a href="logout">Logout</a>  </h3>  
+	 <h3 align="justify"><a href="dashboard" >DashBoard</a><br>
 	 <a href="viewCart">Cart <span id="cartNumber"><c:out
-					value="${cartSize}" /></span></a>
-	  </pre> </h3>
+					value="${cartSize}" /></span></a></h3>
+	  
 
 	
 		
 
 	<p id="cartMessage"></p>
-	<h3>
+<%-- 	<h3>
 		<c:out value="${model.product.name}" />
 	</h3>
-
-	<div>
+ --%>
+	<div style="font-size: large;" align="center">
 
 		Name:
 		<c:out value="${model.product.name}" />
-		<br> Size:
+		<br><br> Size:
 		<c:out value="${model.product.size}" />
-		<br> Color:
+		<br><br> Color:
 		<c:out value="${model.product.color}" />
-		<br> <i>&#x20b9;<c:out value="${model.product.price}" /></i><br>
+		<br><br> <i>&#x20b9;<c:out value="${model.product.price}" /></i><br>
 			  <a href="/EcommerceV2/add?id=<c:out value="${model.product.id}" />" >Add to Cart</a>
 			 <br>
 	</div>

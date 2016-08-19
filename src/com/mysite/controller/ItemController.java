@@ -24,6 +24,8 @@ public class ItemController {
 
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> myModel = new HashMap<String, Object>();
+		myModel.put("user", request.getSession().getAttribute("user"));
+		
 		myModel.put("products", this.productHandler.getProducts());
 		myModel.put("cartSize", "" + request.getSession().getAttribute("cartSize"));
 		return new ModelAndView("dashboard", "model", myModel);

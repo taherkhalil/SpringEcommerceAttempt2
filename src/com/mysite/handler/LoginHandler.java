@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mysite.model.Products;
 import com.mysite.model.User;
@@ -20,11 +21,9 @@ public class LoginHandler {
 	LoginValidator loginValidator;
 	@Autowired
 	UserHandler userHandler;
-//	@Autowired
-//	User user ;
-//	@Autowired
-	CartManager cartManager;
 
+	CartManager cartManager;
+RedirectAttributes red;
 	public String validateInput(ModelMap model, User user, BindingResult result, String toPage,
 			HttpServletRequest request, HttpServletResponse response) {
 		loginValidator.validate(user, result);
@@ -38,6 +37,7 @@ public class LoginHandler {
 			model.addAttribute("user", user);
 			url = "login";
 		} else if (this.userHandler.getUsers().contains(user)) {
+			request.getSession().setAttribute("user", user);
 			url = "redirect:/dashboard";
 			startSession(user, request, response);
 		} else {
