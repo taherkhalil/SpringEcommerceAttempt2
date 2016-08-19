@@ -23,11 +23,14 @@
 			<i>&#x20b9;<c:out value="${prod.price}" /></i><br> 
 			Available Stock:
 			<c:out value="${prod.quantity }"></c:out><br>
+			<%-- Quantity Selected:<c:out value="${prod.selected }"></c:out><br> --%>
+		
 			<a href="/EcommerceV2/add?id=<c:out value="${prod.id}" />">Add
 				to Cart</a> <a
 				href="/EcommerceV2/product?id=<c:out value="${prod.id}" />">View
 				More</a> <br>
 		</div>
 	</c:forEach>
+	
 </body>
 </html>

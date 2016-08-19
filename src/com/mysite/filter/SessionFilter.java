@@ -12,7 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter({"/dashboard", "/moreInfo","/logout","/product","/add","/viewCart","/checkout"})
+@WebFilter({"/dashboard", "/moreInfo","/logout","/product","/add","/viewCart","/checkout","/remove","/place","/error"})
 public class SessionFilter implements Filter {
 
 	public SessionFilter() {

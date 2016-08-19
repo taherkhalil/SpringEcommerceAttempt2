@@ -63,7 +63,7 @@ public class ProductHandler {
 			
 			for (Products prod: cartItems.values()) {
 				
-				int quantity = Collections.frequency(cartItems.values(), prod);
+				int quantity =prod.getSelected();
 				Integer price = prod.getPrice()* quantity;
 				order = new Order (prod, quantity, price);
 				orders.add(order);

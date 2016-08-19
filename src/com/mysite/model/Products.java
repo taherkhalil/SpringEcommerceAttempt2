@@ -10,6 +10,15 @@ public class Products implements Serializable {
 	private String size;
 	private String color;
 	private int quantity;
+	private int selected;
+
+	public int getSelected() {
+		return selected;
+	}
+
+	public void setSelected(int selected) {
+		this.selected = selected;
+	}
 
 	public int getId() {
 		return id;

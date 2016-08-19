@@ -41,7 +41,7 @@
 
 	<bean id="loginValidator" class="com.mysite.handler.LoginValidator"></bean>
 	<bean id="loginHandler" class="com.mysite.handler.LoginHandler"></bean>
-
+<bean name="order" class="com.mysite.model.Order"></bean>
 	<bean name="productHandler" class="com.mysite.handler.ProductHandler"
 		scope="singleton">
 		<property name="products">
@@ -60,6 +60,7 @@
 		<property name="size" value="X" />
 		<property name="color" value="Blue/green" />
 		<property name="quantity" value="5" />
+		<property name="selected" value="0" />
 	</bean>
 
 	<bean id="product2" class="com.mysite.model.Products">
@@ -69,6 +70,7 @@
 		<property name="size" value="XL" />
 		<property name="color" value="Black/Blue" />
 		<property name="quantity" value="5" />
+		<property name="selected" value="0" />
 	</bean>
 	<bean id="product3" class="com.mysite.model.Products">
 		<property name="id" value="3" />
@@ -77,6 +79,7 @@
 		<property name="size" value="L" />
 		<property name="color" value="White/Black" />
 		<property name="quantity" value="5" />
+		<property name="selected" value="0" />
 	</bean>
 	<bean id="product4" class="com.mysite.model.Products">
 		<property name="id" value="4" />
@@ -85,6 +88,7 @@
 		<property name="size" value="XL" />
 		<property name="color" value="Blue" />
 		<property name="quantity" value="5" />
+		<property name="selected" value="0" />
 
 	</bean>
 	<!-- <bean id="cartManager" class="com.mysite.handler.CartManager"></bean> -->

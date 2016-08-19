@@ -28,7 +28,7 @@ public class CartController {
 
 	@Autowired
 	ProductHandler productHandler;
-
+	@Autowired
 	Order order;
 	CartManager cartManager;
 
@@ -45,24 +45,32 @@ public class CartController {
 		}
 
 		int cartSize = cartManager.addItemToCart(id, product);
+		product.setSelected(cartSize);
 		req.getSession(false).setAttribute("cartSize", cartSize);
 		productHandler.reduceQuantity(product);
 		System.out.println("add:" + cartSize);
 		String response = "" + cartSize;
 		req.getSession(false).setAttribute("cartList", cartManager);
+System.out.println("current quantity" + cartSize);
 
 		// System.out.println(product + "added to cart");
 		System.out.println(req.getAttribute("cartList"));
-		System.out.println(req.getSession(false).getAttribute("cartList"));
-
+		//System.out.println(req.getSession(false).getAttribute("cartList"));
+		myModel.put("quantity", cartSize);
 		myModel.put("products", this.productHandler.getProducts());
 		return new ModelAndView("dashboard", "model", myModel);
 	}
 
 	@RequestMapping(value = "/viewCart", method = RequestMethod.GET)
-	public ModelAndView cartView(HttpServletRequest req, HttpServletResponse res) {
+	public ModelAndView cartView(HttpServletRequest req, HttpServletResponse res/*,@ModelAttribute("order")Order order*/) {
 		cartManager = (CartManager) req.getSession(false).getAttribute("cartList");
 		Map<String, Object> myModel = new HashMap<String, Object>();
+		Set<Order> orders = new HashSet<Order>();
+		orders=productHandler.removeDuplicateProducts(cartManager.getCartProducts());
+		//System.out.println("orders = " +order);
+		//System.out.println(orders.contains(order.getProduct().getName()));
+		
+		myModel.put("orders", orders);
 		myModel.put("products", cartManager.getCartProducts());
 		return new ModelAndView("viewCart", "model", myModel);
 
@@ -71,16 +79,24 @@ public class CartController {
 	@RequestMapping(value = "/remove", method = RequestMethod.GET)
 	public ModelAndView removeItem(ModelMap model, HttpServletRequest req, HttpServletResponse res,
 			@RequestParam Integer id) {
-
+		//Products product = productHandler.findProduct(id);
 		cartManager = (CartManager) req.getSession(false).getAttribute("cartList");
 		Products product2 = cartManager.getCartProducts().get(id);
 		int cartSize = cartManager.removeItemFromCart(id);
+		
 		Products product = productHandler.findProduct(product2.getId());
+		product.setSelected(cartSize);
+	
 		productHandler.increaseQuantity(product);
-		req.getSession(false).setAttribute("cartSize", cartSize);
+		
+		
+				req.getSession(false).setAttribute("cartSize", cartSize);
 		req.getSession(false).setAttribute("cartList", cartManager);
 		Map<String, Object> myModel = new HashMap<String, Object>();
-
+		Set<Order> orders = new HashSet<Order>();
+		orders=productHandler.removeDuplicateProducts(cartManager.getCartProducts());
+	//System.out.println(orders.contains(order.getProduct().getName()));
+		myModel.put("orders", orders);
 		// System.out.println(req.getAttribute("cartList").toString());
 		System.out.println(req.getSession(false).getAttribute("cartList"));
 
@@ -104,7 +120,7 @@ public class CartController {
 	
 		
 		
-		Integer price = cartManager.calculatePrice();
+		Double price = cartManager.calculatePrice(orders);
 		Map<String, Object> myModel = new HashMap<String, Object>();
 		myModel.put("products", cartManager.getCartProducts());
 		myModel.put("orders", orders);
