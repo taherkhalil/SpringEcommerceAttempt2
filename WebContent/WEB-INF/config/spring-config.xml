@@ -19,7 +19,9 @@
 	</bean>
 	<bean name="itemOutOfStock" class="com.mysite.exceptions.ItemOutOfStockException"></bean>
 	<bean name="itemNotFound" class="com.mysite.exceptions.ItemNotFoundException"></bean>
+
 	<bean id="userHandler" class="com.mysite.handler.UserHandler">
+	
 		<property name="users">
 			<list>
 				<ref bean="user" />
@@ -93,7 +95,7 @@
 		<property name="selected" value="0" />
 
 	</bean>
-	<!-- <bean id="CartManager" class="com.mysite.handler.CartManager"></bean> -->
+	
 </beans>
    
  

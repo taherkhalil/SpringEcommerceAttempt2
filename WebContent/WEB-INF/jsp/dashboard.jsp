@@ -12,8 +12,8 @@
 	<h1>welcome  <c:out value="${user }"></c:out>    </h1>
 	<h3>Products</h3>
 
-	<h4 ><a href="viewCart">Cart <span id="cartNumber"><c:out
-				value="${cartSize}" /></span></a> &nbsp; &nbsp;&nbsp;&nbsp;<a href="logout">Logout</a></h4>
+	<h4 ><a href="viewCart">Cart </a>
+		 &nbsp; &nbsp;&nbsp;&nbsp;<a href="logout">Logout</a></h4>
 					
 	<c:forEach items="${model.products}" var="prod">
 		<div>

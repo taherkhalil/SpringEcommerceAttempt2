@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.mysite.model.Order;
 import com.mysite.model.Products;
@@ -25,7 +26,7 @@ public class CartManager {
 		this.cartProducts = cartProducts;
 	}
 
-	 public CartManager(HashMap<Integer, Products> hashMap) {
+	public CartManager(HashMap<Integer, Products> hashMap) {
 	 this.cartProducts = hashMap;
 	 }
 	public Map<Integer, Products> getCartProducts() {

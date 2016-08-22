@@ -15,7 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.mysite.model.Products;
 import com.mysite.model.User;
 
-
 public class LoginHandler {
 	@Autowired
 	LoginValidator loginValidator;
@@ -23,16 +22,18 @@ public class LoginHandler {
 	UserHandler userHandler;
 
 	CartManager cartManager;
-RedirectAttributes red;
+	RedirectAttributes red;
+
 	public String validateInput(ModelMap model, User user, BindingResult result, String toPage,
 			HttpServletRequest request, HttpServletResponse response) {
 		loginValidator.validate(user, result);
 		toPage = authenticateUser(model, user, result, toPage, request, response);
-				return toPage;
+		return toPage;
 	}
+
 	private String authenticateUser(ModelMap model, User user, BindingResult result, String url,
 			HttpServletRequest request, HttpServletResponse response) {
-		
+
 		if (result.hasErrors()) {
 			model.addAttribute("user", user);
 			url = "login";
@@ -45,17 +46,18 @@ RedirectAttributes red;
 		}
 		return url;
 	}
+
 	private void startSession(User user, HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession(true);
-		
+
 		session.setAttribute("username", user.getUsername());
 		session.setAttribute("sessID", session.getId());
 		session.setMaxInactiveInterval(1000);
 		Cookie cookie = new Cookie("sessID", session.getId());
 		cookie.setMaxAge(10000);
 		response.addCookie(cookie);
-		session.setAttribute("cartList", new CartManager(new HashMap<Integer,Products>()) );
+		session.setAttribute("cartList", new CartManager(new HashMap<Integer, Products>()));
 		session.setAttribute("cartSize", new Integer(0));
 	}
-	
+
 }

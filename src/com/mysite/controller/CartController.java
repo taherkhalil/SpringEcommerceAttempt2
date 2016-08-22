@@ -32,6 +32,7 @@ public class CartController {
 	Order order;
 	@Autowired
 	ItemOutOfStockException itemOutOfStockException;
+
 	CartManager cartManager;
 	Map<String, Object> myModel = new HashMap<String, Object>();
 	Set<Order> orders = new HashSet<Order>();
@@ -51,6 +52,7 @@ public class CartController {
 		productHandler.reduceQuantity(product);
 	
 		req.getSession(false).setAttribute("cartList", cartManager);
+		
 		System.out.println("current quantity" + cartSize);
 		myModel.put("quantity", cartSize);
 		myModel.put("products", this.productHandler.getProducts());

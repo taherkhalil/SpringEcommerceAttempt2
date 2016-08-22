@@ -22,14 +22,14 @@
 	<c:forEach items="${model.products}" var="prod">
 		<div>
 			<h4 align="center" style="font-style: oblique;">
-				
-						<c:out value="${prod.value.name}" />
-						<i>&#x20b9;<c:out value="${prod.value.price}" /></i><br> 
-			selected quantity:<c:out value="${prod.value.selected}" /><br>
-					  
-    				<a href="/EcommerceV2/remove?id=<c:out value="${prod.key}" />"
-						id="cartRemove">Remove From Cart</a>
-				 <br>
+
+				<c:out value="${prod.value.name}" />
+				<i>&#x20b9;<c:out value="${prod.value.price}" /></i><br>
+				selected quantity:
+				<c:out value="${prod.value.selected}" />
+				<br> <a
+					href="/EcommerceV2/remove?id=<c:out value="${prod.key}" />"
+					id="cartRemove">Remove From Cart</a> <br>
 
 			</h4>
 
