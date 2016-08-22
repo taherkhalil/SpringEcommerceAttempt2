@@ -1,18 +1,8 @@
 package com.mysite.exceptions;
 
+@SuppressWarnings("serial")
 public class ItemOutOfStockException extends RuntimeException {
-	private String msg;
-	
-//	public ItemOutOfStockException(String msg) {
-//		this.msg=msg;
-//	}
-//
-//	public String getMsg() {
-//		return msg;
-//	}
-//
-//	public void setMsg(String msg) {
-//		this.msg = msg;
-//	}
+
+
 
 }

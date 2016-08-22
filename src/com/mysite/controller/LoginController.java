@@ -28,7 +28,7 @@ public class LoginController {
 	@Autowired
 	LoginHandler loginHandler;
 	@Autowired
-	User user ;
+	User user;
 
 	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
 	public ModelAndView welcome(Model model) {
@@ -40,7 +40,6 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String printLoginPage(ModelMap model) {
 
-	
 		model.addAttribute("title", "Login");
 		model.addAttribute("user", user);
 		return "login";
@@ -50,7 +49,7 @@ public class LoginController {
 	public String login(ModelMap model, @ModelAttribute("user") User user, HttpSession session,
 			HttpServletResponse response, HttpServletRequest request, BindingResult result) {
 		String toPage = "login";
-		toPage=loginHandler.validateInput(model, user, result, toPage, request, response);
+		toPage = loginHandler.validateInput(model, user, result, toPage, request, response);
 		return toPage;
 	}
 

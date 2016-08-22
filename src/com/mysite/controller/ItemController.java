@@ -19,11 +19,12 @@ import com.mysite.handler.ProductHandler;
 public class ItemController {
 	@Autowired
 	ProductHandler productHandler;
+	Map<String, Object> myModel = new HashMap<String, Object>();
 
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> myModel = new HashMap<String, Object>();
+		
 		myModel.put("user", request.getSession().getAttribute("user"));
 		
 		myModel.put("products", this.productHandler.getProducts());
@@ -33,7 +34,7 @@ public class ItemController {
 	@RequestMapping(value="/product", method = RequestMethod.GET)
 	public ModelAndView singleProduct(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam Integer id) {
-		Map<String, Object> myModel = new HashMap<String, Object>();
+		
 		myModel.put("product", this.productHandler.findProduct(id));
 		return new ModelAndView( "moreInfo", "model", myModel);
 	}

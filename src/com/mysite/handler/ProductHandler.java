@@ -1,20 +1,25 @@
 package com.mysite.handler;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mysite.exceptions.ItemNotFoundException;
+import com.mysite.exceptions.ItemOutOfStockException;
 import com.mysite.model.Order;
 import com.mysite.model.Products;
 
 public class ProductHandler {
-
+	@Autowired
+	ItemOutOfStockException itemOutOfStockException;
+	@Autowired
+	ItemNotFoundException itemNotFoundException;
+	@Autowired
+	Order order;
 		private List<Products> products;
 
 		public List<Products> getProducts() {	
@@ -32,7 +37,7 @@ public class ProductHandler {
 					return product;
 				}
 			}
-			throw new ItemNotFoundException();
+			throw  itemNotFoundException;
 			
 		}
 
@@ -69,7 +74,7 @@ public class ProductHandler {
 				orders.add(order);
 			}
 			System.out.println(orders.toString());
-			//req.getSession(false).setAttribute("orders", orders);
+			
 			
 			return orders;
 		}

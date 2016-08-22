@@ -1,7 +1,7 @@
 package com.mysite.handler;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -37,16 +37,11 @@ public class CartManager {
 	}
 	
 	public int addItemToCart(int pid, Products product){
-	//Integer stock=product.getQuantity();
-	//Integer quantity=0;
-		//cartProducts.put(pid,product);
+
 		if(cartProducts.containsKey(pid)){
 			Integer currentQuantity = quantsmap.get(pid);
 			quantsmap.put(pid, ++currentQuantity);
-			//if(stock==stock-1)
-//				quantity ++ ;
-			//order.setQuantity(order.getQuantity()+1);
-			//System.out.println(order.getQuantity());
+
 		System.out.println("already in cart");
 				}
 		else {
@@ -85,21 +80,7 @@ public class CartManager {
 	}
 	public Double calculatePrice(Set<Order> orders){
 		Double total = 0.0;
-//		for (int i = 1; i < (cartProducts.size() + 1); i++) {
-//			System.out.println();
-//			total += cartProducts.get(i).getPrice();
-//		}
-//		Iterator itr = cartProducts.entrySet().iterator();
-//
-//		while (itr.hasNext())
-//		{
-//			Map.Entry<Integer, Products> item = (Map.Entry<Integer, Products>) itr.next();
-//			total += item.getValue().getPrice(); 
-//		} 
-	
-//		for (Products prod: this.cartProducts.values()) {
-//			total += prod.getPrice();
-//		}
+
 		
 		for(Order order : orders) {
 			total += order.getPrice() ;

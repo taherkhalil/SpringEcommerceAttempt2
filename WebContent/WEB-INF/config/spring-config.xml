@@ -17,6 +17,8 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<bean name="itemOutOfStock" class="com.mysite.exceptions.ItemOutOfStockException"></bean>
+	<bean name="itemNotFound" class="com.mysite.exceptions.ItemNotFoundException"></bean>
 	<bean id="userHandler" class="com.mysite.handler.UserHandler">
 		<property name="users">
 			<list>
@@ -41,7 +43,7 @@
 
 	<bean id="loginValidator" class="com.mysite.handler.LoginValidator"></bean>
 	<bean id="loginHandler" class="com.mysite.handler.LoginHandler"></bean>
-<bean name="order" class="com.mysite.model.Order"></bean>
+	<bean name="order" class="com.mysite.model.Order"></bean>
 	<bean name="productHandler" class="com.mysite.handler.ProductHandler"
 		scope="singleton">
 		<property name="products">
@@ -91,7 +93,7 @@
 		<property name="selected" value="0" />
 
 	</bean>
-	<!-- <bean id="cartManager" class="com.mysite.handler.CartManager"></bean> -->
+	<!-- <bean id="CartManager" class="com.mysite.handler.CartManager"></bean> -->
 </beans>
    
  

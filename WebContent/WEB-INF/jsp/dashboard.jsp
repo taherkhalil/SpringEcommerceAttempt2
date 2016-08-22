@@ -12,8 +12,8 @@
 	<h1>welcome  <c:out value="${user }"></c:out>    </h1>
 	<h3>Products</h3>
 
-	<h4><pre><a href="viewCart">Cart <span id="cartNumber"><c:out
-				value="${cartSize}" /></span></a>          <a href="logout">Logout</a></pre></h4>
+	<h4 ><a href="viewCart">Cart <span id="cartNumber"><c:out
+				value="${cartSize}" /></span></a> &nbsp; &nbsp;&nbsp;&nbsp;<a href="logout">Logout</a></h4>
 					
 	<c:forEach items="${model.products}" var="prod">
 		<div>
@@ -24,7 +24,7 @@
 			<i>&#x20b9;<c:out value="${prod.price}" /></i><br> 
 			Available Stock:
 			<c:out value="${prod.quantity }"></c:out><br>
-			<%-- Quantity Selected:<c:out value="${prod.selected }"></c:out><br> --%>
+	
 		
 			<a href="/EcommerceV2/add?id=<c:out value="${prod.id}" />">Add
 				to Cart</a> <a

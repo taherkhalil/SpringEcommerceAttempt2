@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h3><a href="logout">Logout</a>  </h3>  
-	 <h3 align="justify"><a href="dashboard" >DashBoard</a><br>
+	 <h3 align="center"><a href="dashboard" >DashBoard</a><br>
 	 <a href="viewCart">Cart <span id="cartNumber"><c:out
 					value="${cartSize}" /></span></a></h3>
 	  
@@ -20,10 +20,7 @@
 		
 
 	<p id="cartMessage"></p>
-<%-- 	<h3>
-		<c:out value="${model.product.name}" />
-	</h3>
- --%>
+
 	<div style="font-size: large;" align="center">
 
 		Name:
@@ -33,6 +30,8 @@
 		<br><br> Color:
 		<c:out value="${model.product.color}" />
 		<br><br> <i>&#x20b9;<c:out value="${model.product.price}" /></i><br>
+		<br> Selected:
+		<c:out value="${model.product.selected}" /><br>
 			  <a href="/EcommerceV2/add?id=<c:out value="${model.product.id}" />" >Add to Cart</a>
 			 <br>
 	</div>
