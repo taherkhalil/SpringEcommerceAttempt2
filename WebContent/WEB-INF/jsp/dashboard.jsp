@@ -12,7 +12,7 @@
 	<h1>welcome  <c:out value="${user }"></c:out>    </h1>
 	<h3>Products</h3>
 
-	<h4 ><a href="viewCart">Cart </a>
+	<h4 ><a href="viewCart">Cart </a><c:out value="${model.cartSize }"></c:out>
 		 &nbsp; &nbsp;&nbsp;&nbsp;<a href="logout">Logout</a></h4>
 					
 	<c:forEach items="${model.products}" var="prod">

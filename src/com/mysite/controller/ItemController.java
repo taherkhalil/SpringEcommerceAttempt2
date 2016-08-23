@@ -34,8 +34,9 @@ public class ItemController {
 	@RequestMapping(value="/product", method = RequestMethod.GET)
 	public ModelAndView singleProduct(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam Integer id) {
-		
+		Integer cartSize =(Integer) request.getSession().getAttribute("cartSize");
 		myModel.put("product", this.productHandler.findProduct(id));
+		myModel.put("cartSize", cartSize);
 		return new ModelAndView( "moreInfo", "model", myModel);
 	}
 	

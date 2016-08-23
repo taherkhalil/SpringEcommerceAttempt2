@@ -14,8 +14,8 @@
 		<a href="logout">Logout</a>
 	</h3>
 	<h3 align="center">
-		<a href="dashboard">DashBoard</a><br> <a href="viewCart">Cart
-			<span id="cartNumber"><c:out value="${cartSize}" /></span>
+		<a href="dashboard">DashBoard</a><br> 
+		<a href="viewCart">Cart:<c:out value="${model.cartSize }"></c:out>
 		</a>
 	</h3>
 
@@ -23,16 +23,16 @@
 
 		Name:
 		<c:out value="${model.product.name}" />
-		<br>
+		
 		<br> Size:
 		<c:out value="${model.product.size}" />
-		<br>
+
 		<br> Color:
 		<c:out value="${model.product.color}" />
-		<br>
+		
 		<br> <i>&#x20b9;<c:out value="${model.product.price}" /></i><br>
-		<br> Selected:
-		<c:out value="${model.product.selected}" />
+		<br> Available Stock:
+		<c:out value="${model.product.quantity}" />
 		<br> <a
 			href="/EcommerceV2/add?id=<c:out value="${model.product.id}" />">Add
 			to Cart</a> <br>

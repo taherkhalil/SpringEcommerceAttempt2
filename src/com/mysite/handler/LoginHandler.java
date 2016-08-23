@@ -23,7 +23,7 @@ public class LoginHandler {
 
 	CartManager cartManager;
 	RedirectAttributes red;
-
+	Integer a=0;
 	public String validateInput(ModelMap model, User user, BindingResult result, String toPage,
 			HttpServletRequest request, HttpServletResponse response) {
 		loginValidator.validate(user, result);
@@ -57,7 +57,8 @@ public class LoginHandler {
 		cookie.setMaxAge(10000);
 		response.addCookie(cookie);
 		session.setAttribute("cartList", new CartManager(new HashMap<Integer, Products>()));
-		session.setAttribute("cartSize", new Integer(0));
+		session.setAttribute("cartSize", a);
+		System.out.println(session.getAttribute("cartSize"));
 	}
 
 }

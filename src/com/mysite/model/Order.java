@@ -4,7 +4,7 @@ package com.mysite.model;
 public class Order {
 	@Override
 	public String toString() {
-		return " " + product.getName()+"    ,Quantity=" + quantity + "    ,Price=" + price + "";
+		return " " + product.getName()+"  \t\t * \t" + quantity + "   "+" \t = " + price + "";
 	}
 	private Products product;
 	private Integer quantity;
